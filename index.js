@@ -2,9 +2,12 @@ var express = require("express");
 var app = express();
 var fs = require("fs");
 
+ 
 //Get all provinces
 app.get("/tinh/", function(req, res) {
   fs.readFile(__dirname + "/JsonDB/" + "tinh_new", "utf8", function(err, data) {
+res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
     res.header("Content-Type", "application/json; charset=utf-8");
     res.end(data);
   });
@@ -18,6 +21,8 @@ app.get("/tinh/:id", function(req, res) {
       "_new",
     "utf8",
     function(err, data) {
+res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
       console.log(data);
       res.header("Content-Type", "application/json; charset=utf-8");
       res.end(data);
@@ -34,6 +39,8 @@ app.get("/huyen/:id", function(req, res) {
       "_new",
     "utf8",
     function(err, data) {
+res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
       res.header("Content-Type", "application/json; charset=utf-8");
       res.end(data);
     }
